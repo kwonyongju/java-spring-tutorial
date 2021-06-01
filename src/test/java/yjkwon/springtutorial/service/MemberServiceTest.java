@@ -1,13 +1,12 @@
 package yjkwon.springtutorial.service;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import yjkwon.springtutorial.domain.Member;
 import yjkwon.springtutorial.repository.MemoryMemberRepository;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
-
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class MemberServiceTest {
 
@@ -24,7 +23,7 @@ class MemberServiceTest {
     void join() {
         //given
         Member member = new Member();
-        member.setName("member1");
+        member.setName("member10");
 
         //when
         Long savedId = service.join(member);
@@ -49,13 +48,6 @@ class MemberServiceTest {
         //then
         IllegalStateException e = Assertions.assertThrows(IllegalStateException.class, () -> service.join(member2));
         assertThat(e.getMessage()).isEqualTo("The member already exists");
-
-//        try {
-//            Long member2Id = service.join(member2);
-//            fail("IllegalStateException must be triggered");
-//        } catch (IllegalStateException e) {
-//            assertThat(e.getMessage()).isEqualTo("The member already exists");
-//        }
     }
 
     @Test
