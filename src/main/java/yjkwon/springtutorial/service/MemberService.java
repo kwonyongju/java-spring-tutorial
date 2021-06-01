@@ -1,5 +1,6 @@
 package yjkwon.springtutorial.service;
 
+import org.springframework.transaction.annotation.Transactional;
 import yjkwon.springtutorial.domain.Member;
 import yjkwon.springtutorial.repository.MemberRepository;
 
@@ -7,6 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 // @Service // Component scan
+@Transactional
 public class MemberService {
 
     private final MemberRepository memberRepository;
