@@ -15,12 +15,6 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
-    /**
-     * Register
-     *
-     * @param member
-     * @return
-     */
     public Long join(Member member) {
         validateDuplicateMember(member);
 
